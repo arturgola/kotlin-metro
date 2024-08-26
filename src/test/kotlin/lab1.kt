@@ -1,6 +1,7 @@
 import lab1.*
 import org.junit.jupiter.api.Test
 import org.junit.jupiter.api.Assertions.*
+
 internal class StudyRegisterTest {
     private val students = ArrayList<Student>()
     fun createStudents() {
