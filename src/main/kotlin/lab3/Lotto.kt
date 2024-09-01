@@ -1,5 +1,16 @@
 package lab3
 
+fun main() {
+    val lotto = Lotto()
+    playLotto()
+
+    val low = 1
+    val high = 40
+    val secretNumbers = lotto.pickNDistinct(low, high, 7) ?: emptyList()
+    val result = findLotto(lotto, secretNumbers, low, high)
+    println("Computer guess in ${result.first} steps is ${result.second}")
+}
+
 class Lotto {
     fun pickNDistinct(low: Int, high: Int, n: Int): List<Int>? {
         val range = low..high
@@ -88,15 +99,4 @@ fun findLotto(lotto: Lotto, secretNumbers: List<Int>, low: Int, high: Int): Pair
             return Pair(attempts, guess)
         }
     }
-}
-
-fun main() {
-    val lotto = Lotto()
-    playLotto()
-
-    val low = 1
-    val high = 40
-    val secretNumbers = lotto.pickNDistinct(low, high, 7) ?: emptyList()
-    val result = findLotto(lotto, secretNumbers, low, high)
-    println("Computer guess in ${result.first} steps is ${result.second}")
 }
